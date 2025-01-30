@@ -1,0 +1,124 @@
+<div class="column-layout group">
+  <h6 class="h6">
+    Employees
+  </h6>
+  <igx-list class="list">
+    @for (item of northwindSwaggerEmployeeDto; track item) {
+      <igx-list-item (click)="listItemClick(item)">
+        <span igxListThumbnail>
+          <igx-avatar shape="circle" class="avatar">
+            <igx-icon>
+              person
+            </igx-icon>
+          </igx-avatar>
+        </span>
+        <span igxListLineTitle>{{ item.lastName }}</span>
+        <span igxListLineSubTitle>{{ item.lastName }}</span>
+        <span igxListAction>
+          <igx-icon class="icon">
+            arrow_forward_ios
+          </igx-icon>
+        </span>
+      </igx-list-item>
+    }
+  </igx-list>
+</div>
+<form (ngSubmit)="ngSubmitEmployeeDto()" [formGroup]="employeeDtoFormModel" (reset)="onResetForm($event)" class="column-layout form">
+  <h6>
+    Add/Update Employee
+  </h6>
+  <div class="column-layout form_fields">
+    <igx-input-group type="border">
+      <input type="number" igxInput formControlName="employeeId" />
+      <label igxLabel>employeeId</label>
+    </igx-input-group>
+    <igx-input-group type="border">
+      <input type="text" required igxInput formControlName="lastName" />
+      <label igxLabel>lastName</label>
+    </igx-input-group>
+    <igx-input-group type="border">
+      <input type="text" igxInput formControlName="firstName" />
+      <label igxLabel>firstName</label>
+    </igx-input-group>
+    <igx-input-group type="border">
+      <input type="text" igxInput formControlName="title" />
+      <label igxLabel>title</label>
+    </igx-input-group>
+    <igx-input-group type="border">
+      <input type="text" igxInput formControlName="titleOfCourtesy" />
+      <label igxLabel>titleOfCourtesy</label>
+    </igx-input-group>
+    <igx-date-picker type="border" mode="dialog" formControlName="birthDate">
+      <label igxLabel>birthDate</label>
+    </igx-date-picker>
+    <igx-date-picker type="border" mode="dialog" formControlName="hireDate">
+      <label igxLabel>hireDate</label>
+    </igx-date-picker>
+    <igx-input-group type="border">
+      <input type="text" igxInput formControlName="addressId" />
+      <label igxLabel>addressId</label>
+    </igx-input-group>
+    <ng-container formGroupName="address">
+      <igx-input-group type="border">
+        <input type="text" igxInput formControlName="street" />
+        <label igxLabel>address.street</label>
+      </igx-input-group>
+    </ng-container>
+    <ng-container formGroupName="address">
+      <igx-input-group type="border">
+        <input type="text" igxInput formControlName="city" />
+        <label igxLabel>address.city</label>
+      </igx-input-group>
+    </ng-container>
+    <ng-container formGroupName="address">
+      <igx-input-group type="border">
+        <input type="text" igxInput formControlName="region" />
+        <label igxLabel>address.region</label>
+      </igx-input-group>
+    </ng-container>
+    <ng-container formGroupName="address">
+      <igx-input-group type="border">
+        <input type="text" igxInput formControlName="postalCode" />
+        <label igxLabel>address.postalCode</label>
+      </igx-input-group>
+    </ng-container>
+    <ng-container formGroupName="address">
+      <igx-input-group type="border">
+        <input type="text" required igxInput formControlName="country" />
+        <label igxLabel>address.country</label>
+      </igx-input-group>
+    </ng-container>
+    <ng-container formGroupName="address">
+      <igx-input-group type="border">
+        <input type="text" igxInput formControlName="phone" />
+        <label igxLabel>address.phone</label>
+      </igx-input-group>
+    </ng-container>
+    <igx-input-group type="border">
+      <input type="text" igxInput formControlName="notes" />
+      <label igxLabel>notes</label>
+    </igx-input-group>
+    <igx-input-group type="border">
+      <input type="text" igxInput formControlName="avatarUrl" />
+      <label igxLabel>avatarUrl</label>
+    </igx-input-group>
+    <igx-input-group type="border">
+      <input type="number" igxInput formControlName="reportsTo" />
+      <label igxLabel>reportsTo</label>
+    </igx-input-group>
+  </div>
+  <div class="row-layout actions">
+    <button igxButton="outlined" type="reset" igxRipple class="button">
+      Reset
+    </button>
+    <button igxButton="contained" type="submit" igxRipple class="button">
+      Add
+    </button>
+  </div>
+  <igx-snackbar actionText="OK" [igxToggleAction]="snackbarsuccess" #snackbarsuccess>
+    Your new submission was saved successfully!
+  </igx-snackbar>
+  <igx-snackbar actionText="OK" [igxToggleAction]="snackbarerror" #snackbarerror>
+    Uh-oh! Something went wrong.
+  </igx-snackbar>
+</form>

@@ -1,0 +1,75 @@
+:host {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 800px);
+  justify-items: stretch;
+  align-items: stretch;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: auto;
+  position: relative;
+  padding: 24px;
+  min-width: 50px;
+  min-height: 50px;
+}
+.form_fields {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: auto;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.row-layout {
+  display: flex;
+}
+.actions {
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.h6 {
+  height: max-content;
+  min-width: min-content;
+}
+.avatar {
+  --ig-size: var(--ig-size-small);
+}
+.icon {
+  --size: 24px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+.list {
+  height: max-content;
+}
+.form {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  padding: 24px;
+  min-width: 50px;
+  min-height: 50px;
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+.button {
+  --ig-size: var(--ig-size-medium);
+  flex-shrink: 0;
+}
